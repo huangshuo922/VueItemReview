@@ -7,16 +7,41 @@ export default {
             pagesize: 5,
             tableData:[],
             currentPage: 1,
-            total:10
+            total:10,
+            //添加表单内容
+            dialogFormVisible: false,
+            addForm: {
+              username: '',
+              password:'',
+              email:'',
+              mobile:''
+            },
+            formLabelWidth: '120px'
+
         }
     },
     methods: {
+        handleAddUserList: function(){
+            this.$axios.post('http://localhost:8888/api/private/v1/users', {
+                username: this.addForm.username,
+                password:this.addForm.password,
+                email:this.addForm.email,
+                mobile:this.addForm.mobile,
+              })
+              .then( (response) => {
+                console.log(response);
+                this.dialogFormVisible= false,
+                this.renderList();
+              })
+              .catch( (error) => {
+                console.log(error);
+              });
+        },
         renderList: function(){
             this.$axios.get('http://localhost:8888/api/private/v1/users', {
                 params: {
                     pagenum:this.currentPage,
                     pagesize:this.pagesize,
-                
                 }
               })
               .then( (response) => {

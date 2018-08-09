@@ -17,3 +17,9 @@
 .mainUserList .is-leaf {
     text-align: center;
 }
+.addUserList {
+    line-height: 0;
+}
+.addUserList .el-dialog__body{
+    padding: 30px 55px 30px 0;
+}

@@ -15,7 +15,7 @@
             </div>
         </el-col>
         <el-col :span="3" class="addUserListBox">
-            <el-button type="primary">添加用户</el-button>
+            <el-button type="primary" @click="dialogFormVisible = true">添加用户</el-button>
         </el-col>
     </el-row>
     <el-row class="mainUserList">
@@ -43,6 +43,31 @@
                     :page-size="5" layout="total, sizes, prev, pager, next, jumper" :total="total">
                 </el-pagination>
             </div>
+        </el-col>
+    </el-row>
+    <el-row class="addUserList">
+        <el-col :span="24">
+
+            <el-dialog title="添加用户" :visible.sync="dialogFormVisible">
+                <el-form :model="addForm">
+                    <el-form-item label="用户名称" :label-width="formLabelWidth">
+                        <el-input v-model="addForm.username" auto-complete="off"></el-input>
+                    </el-form-item>
+                    <el-form-item label="用户密码" :label-width="formLabelWidth">
+                        <el-input v-model="addForm.password" auto-complete="off"></el-input>
+                    </el-form-item>
+                    <el-form-item label="邮箱" :label-width="formLabelWidth">
+                        <el-input v-model="addForm.email" auto-complete="off"></el-input>
+                    </el-form-item>
+                    <el-form-item label="手机号" :label-width="formLabelWidth">
+                        <el-input v-model="addForm.mobile" auto-complete="off"></el-input>
+                    </el-form-item>
+                </el-form>
+                <div slot="footer" class="dialog-footer">
+                    <el-button @click="dialogFormVisible = false">取 消</el-button>
+                    <el-button type="primary" @click="handleAddUserList">确 定</el-button>
+                </div>
+            </el-dialog>
         </el-col>
     </el-row>
 </div>
