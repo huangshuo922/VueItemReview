@@ -36,4 +36,13 @@
             </el-table>
         </el-col>
     </el-row>
+    <el-row>
+        <el-col :span="24">
+            <div class="block">
+                <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPage" :page-sizes="[5, 10, 15, 20]"
+                    :page-size="5" layout="total, sizes, prev, pager, next, jumper" :total="total">
+                </el-pagination>
+            </div>
+        </el-col>
+    </el-row>
 </div>
