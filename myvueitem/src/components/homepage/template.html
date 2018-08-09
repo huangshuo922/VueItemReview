@@ -1,5 +1,10 @@
 <el-container>
-    <el-header>后台管理系统</el-header>
+    <el-header>
+        电商管理系统
+        <span class="signOut">
+            <el-button round @click="handleSignOut">退出</el-button>
+        </span>
+    </el-header>
     <el-container>
         <el-aside width="200px">
             <el-col :span="12">
@@ -11,7 +16,9 @@
                             <span>用户管理</span>
                         </template>
                         <el-menu-item-group>
-                            <el-menu-item index="1-1">用户列表</el-menu-item>
+                            <el-menu-item index="1-1">
+                                <a href="#/userList">用户列表</a>
+                            </el-menu-item>
                         </el-menu-item-group>
                        
                     </el-submenu>
@@ -63,6 +70,8 @@
             </el-col>
             </el-row>
         </el-aside>
-        <el-main>Main</el-main>
+        <el-main>
+            <router-view></router-view>
+        </el-main>
     </el-container>
 </el-container>

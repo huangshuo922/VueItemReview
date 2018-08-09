@@ -1,0 +1,39 @@
+<div class="userListbox">
+    <el-row>
+        <el-breadcrumb separator-class="el-icon-arrow-right">
+            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+            <el-breadcrumb-item>用户管理</el-breadcrumb-item>
+            <el-breadcrumb-item>用户列表</el-breadcrumb-item>
+        </el-breadcrumb>
+    </el-row>
+    <el-row class="searchBox">
+        <el-col :span="6">
+            <div style="margin-top: 15px;">
+                <el-input placeholder="请输入内容" v-model="input5" class="input-with-select">
+                    <el-button slot="append" icon="el-icon-search"></el-button>
+                </el-input>
+            </div>
+        </el-col>
+        <el-col :span="3" class="addUserListBox">
+            <el-button type="primary">添加用户</el-button>
+        </el-col>
+    </el-row>
+    <el-row class="mainUserList">
+        <el-col :span="24">
+            <el-table :data="tableData" style="width: 100%">
+                <el-table-column prop="userName" label="用户名" width="180">
+                </el-table-column>
+                <el-table-column prop="eMail" label="邮箱" width="180">
+                </el-table-column>
+                <el-table-column prop="phone" label="电话">
+                </el-table-column>
+                <el-table-column label="操作">
+                    <template slot-scope="scope">
+                        <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+                        <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+                    </template>
+                </el-table-column>
+            </el-table>
+        </el-col>
+    </el-row>
+</div>

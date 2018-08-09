@@ -3,11 +3,18 @@
     color: #333;
     text-align: center;
     line-height: 60px;
+    font-size: 26px
   }
   body , html , .aside , #app , .el-container , .asideHeight {
     height: 100%;
 }
-  
+  .signOut {
+    float: right;
+    margin-right: 20px;
+  }
+  .signOut .el-button {
+    font-size: 12px;
+  }
   .el-aside {
     background-color: #D3DCE6;
     color: #333;
