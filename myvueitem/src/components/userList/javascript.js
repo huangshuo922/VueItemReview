@@ -1,40 +1,40 @@
 export default {
     created() {
-        
+        this.renderList();
     },
     data (){
         return{
-            tableData: [{
-                userName: 'zhuhaoliang',
-                eMail: '792131@qq.com',
-                phone: '34234123123213'
-              }, 
-              {
-                userName: 'zhuhaoliang',
-                eMail: '792131@qq.com',
-                phone: '34234123123213'
-              }, 
-              {
-                userName: 'zhuhaoliang',
-                eMail: '792131@qq.com',
-                phone: '34234123123213'
-              }, 
-              {
-                userName: 'zhuhaoliang',
-                eMail: '792131@qq.com',
-                phone: '34234123123213'
-              }]
+            pagenum: 1,
+            pagesize: 10,
+            tableData:[]
         }
     },
     methods: {
         renderList: function(){
-            axios.get('/user?ID=12345')
-            .then((response)=> {
-                console.log(response);
-            })
-            .catch( (error) => {
+            this.$axios.get('http://localhost:8888/api/private/v1/users', {
+                params: {
+                    pagenum:this.pagenum,
+                    pagesize:this.pagesize
+                }
+              })
+              .then( (response) => {
+                // console.log(response);
+                
+                
+                this.tableData = response.data.data.users
+
+                // for(var i=0;i<userListArr.length;i++){
+                //     // console.log([this.tableData])
+                //     // this.tableData[this.tableData.length] = {userName:'',eMail:'',phone:''};
+                //     // this.tableData[this.tableData.length].userName = userListArr[i].username;
+                //     // this.tableData[this.tableData.length].eMail = userListArr[i].email;
+                //     // this.tableData[this.tableData.length].phone = userListArr[i].mobile
+                // }
+                // console.log(this.tableData)
+              })
+              .catch( (error) => {
                 console.log(error);
-            });
+              });
         }
     }
 }
