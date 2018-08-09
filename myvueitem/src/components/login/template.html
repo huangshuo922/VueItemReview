@@ -1,0 +1,15 @@
+<div class="box">
+    <div class="login">
+        <el-row>
+            <el-col :span="24" class="loginBox">
+                    <el-input v-model="userName" placeholder="请输入账号" class="loginInput"></el-input>
+                    <el-input v-model="passWord" placeholder="请输入密码" class="loginInput"></el-input>
+            </el-col>  
+        </el-row>
+        <el-row>
+            <el-col :span="24" class="loginBtn">
+                    <el-button @click="handleLogin">登录</el-button>
+            </el-col>
+        </el-row>
+    </div>
+</div>

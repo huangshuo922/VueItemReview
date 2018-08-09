@@ -1,0 +1,23 @@
+html,body,#app,.box {
+    width: 100%;
+    height: 100%;
+}
+.box {
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login {
+    width: 30%;
+    height: 25%;
+    background-color: pink;
+    padding: 50px 20px 50px 20px;
+}
+.loginInput {
+    margin-top: 20px;
+}
+.loginBtn {
+    text-align: center;
+    margin-top: 40px;
+}
